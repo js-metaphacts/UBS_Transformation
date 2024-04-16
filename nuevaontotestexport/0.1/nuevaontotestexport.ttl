@@ -13,9 +13,41 @@
   dcterms:contributor "admin";
   dcterms:created "2024-04-16T23:09:28.152Z"^^xsd:dateTime;
   dcterms:creator "admin";
-  dcterms:modified "2024-04-16T23:09:28.152Z"^^xsd:dateTime;
+  dcterms:modified "2024-04-16T23:09:58.425Z"^^xsd:dateTime;
   dcterms:title "NuevaOntoTestExport";
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
   vaem:namespace <https://ontologies.metaphacts.com/nuevaontotestexport/>;
   rdfs:label "NuevaOntoTestExport";
   owl:versionInfo "0.1" .
+
+<https://ontologies.metaphacts.com/nuevaontotestexport/ClassOne> a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-16T23:09:58.425Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-16T23:09:58.425Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/nuevaontotestexport/0.1>;
+  rdfs:label "Class one"@en .
+
+<https://ontologies.metaphacts.com/nuevaontotestexport/ClassTwo> a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-16T23:09:58.425Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-16T23:09:58.425Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/nuevaontotestexport/0.1>;
+  rdfs:label "Class two"@en;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom <https://ontologies.metaphacts.com/nuevaontotestexport/ClassOne>;
+      owl:minCardinality 1;
+      owl:onProperty <https://ontologies.metaphacts.com/nuevaontotestexport/relatOne>
+    ] .
+
+<https://ontologies.metaphacts.com/nuevaontotestexport/relatOne> a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-16T23:09:58.425Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-16T23:09:58.425Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/nuevaontotestexport/0.1>;
+  rdfs:label "relat one"@en .
