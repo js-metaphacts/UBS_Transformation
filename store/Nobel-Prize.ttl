@@ -1,0 +1,317 @@
+@prefix : <http://data.nobelprize.org/terms-ext/> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+:DBpediaLaureateAwardShape a sh:NodeShape;
+  sh:targetClass <http://dbpedia.org/ontology/Award> .
+
+:LaureateAwardShape a sh:NodeShape;
+  sh:property :LaureateAwardShape-category, :LaureateAwardShape-isPartOf, :LaureateAwardShape-laureate,
+    :LaureateAwardShape-motivation, :LaureateAwardShape-share, :LaureateAwardShape-sortOrder,
+    :LaureateAwardShape-university, :LaureateAwardShape-year;
+  sh:targetClass <http://data.nobelprize.org/terms/LaureateAward> .
+
+:LaureateAwardShape-category a sh:PropertyShape;
+  sh:class <http://data.nobelprize.org/terms/Category>;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://data.nobelprize.org/terms/category> .
+
+:LaureateAwardShape-isPartOf a sh:PropertyShape;
+  sh:class <http://data.nobelprize.org/terms/NobelPrize>;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path dcterms:isPartOf .
+
+:LaureateAwardShape-laureate a sh:PropertyShape;
+  sh:class <http://data.nobelprize.org/terms/Laureate>;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://data.nobelprize.org/terms/laureate> .
+
+:LaureateAwardShape-motivation a sh:PropertyShape;
+  sh:datatype rdf:langString;
+  sh:path <http://data.nobelprize.org/terms/motivation>;
+  sh:uniqueLang true .
+
+:LaureateAwardShape-share a sh:PropertyShape;
+  sh:datatype xsd:integer;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://data.nobelprize.org/terms/share> .
+
+:LaureateAwardShape-sortOrder a sh:PropertyShape;
+  sh:datatype xsd:integer;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://data.nobelprize.org/terms/sortOrder> .
+
+:LaureateAwardShape-university a sh:PropertyShape;
+  sh:class <http://dbpedia.org/ontology/University>;
+  sh:path <http://data.nobelprize.org/terms/university> .
+
+:LaureateAwardShape-year a sh:PropertyShape;
+  sh:datatype xsd:integer;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://data.nobelprize.org/terms/year> .
+
+:LaureateShape a sh:NodeShape;
+  sh:property :LaureateShape-name, :LaureateShape-nobelPrize;
+  sh:targetClass <http://data.nobelprize.org/terms/Laureate> .
+
+:LaureateShape-name a sh:PropertyShape;
+  sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://xmlns.com/foaf/0.1/name> .
+
+:LaureateShape-nobelPrize a sh:PropertyShape;
+  sh:class <http://data.nobelprize.org/terms/NobelPrize>;
+  sh:message "every laureate should have at least one prize";
+  sh:minCount 1;
+  sh:path <http://data.nobelprize.org/terms/nobelPrize> .
+
+:NobelPrizeShape a sh:NodeShape;
+  sh:property :NobelPrizeShape-category;
+  sh:targetClass <http://data.nobelprize.org/terms/NobelPrize> .
+
+:NobelPrizeShape-category a sh:PropertyShape;
+  sh:class <http://data.nobelprize.org/terms/Category>;
+  sh:maxCount 1;
+  sh:message "every prize should have exactly one category";
+  sh:minCount 1;
+  sh:path <http://data.nobelprize.org/terms/category> .
+
+:PersonShape a sh:NodeShape;
+  sh:property :PersonShape-affiliation, :PersonShape-birthPlace-City, :PersonShape-birthPlace-Country,
+    :PersonShape-dateOfBirth, :PersonShape-dateOfDeath, :PersonShape-deathPlace-City,
+    :PersonShape-deathPlace-Country, :PersonShape-familyName, :PersonShape-givenName;
+  sh:targetClass <http://xmlns.com/foaf/0.1/Person> .
+
+:PersonShape-affiliation a sh:PropertyShape;
+  sh:class <http://dbpedia.org/ontology/University>;
+  sh:path <http://dbpedia.org/ontology/affiliation> .
+
+:PersonShape-birthPlace-City a sh:PropertyShape;
+  sh:path <http://dbpedia.org/ontology/birthPlace>;
+  sh:qualifiedMaxCount 1;
+  sh:qualifiedMinCount 1;
+  sh:qualifiedValueShape [
+      sh:class <http://dbpedia.org/ontology/City>
+    ] .
+
+:PersonShape-birthPlace-Country a sh:PropertyShape;
+  sh:path <http://dbpedia.org/ontology/birthPlace>;
+  sh:qualifiedMaxCount 1;
+  sh:qualifiedMinCount 1;
+  sh:qualifiedValueShape [
+      sh:class <http://dbpedia.org/ontology/Country>
+    ] .
+
+:PersonShape-dateOfBirth a sh:PropertyShape;
+  sh:datatype xsd:date;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://dbpedia.org/property/dateOfBirth> .
+
+:PersonShape-dateOfDeath a sh:PropertyShape;
+  sh:datatype xsd:date;
+  sh:maxCount 1;
+  sh:path <http://dbpedia.org/property/dateOfDeath> .
+
+:PersonShape-deathPlace-City a sh:PropertyShape;
+  sh:path <http://dbpedia.org/ontology/deathPlace>;
+  sh:qualifiedMaxCount 1;
+  sh:qualifiedValueShape [
+      sh:class <http://dbpedia.org/ontology/City>
+    ] .
+
+:PersonShape-deathPlace-Country a sh:PropertyShape;
+  sh:path <http://dbpedia.org/ontology/deathPlace>;
+  sh:qualifiedMaxCount 1;
+  sh:qualifiedValueShape [
+      sh:class <http://dbpedia.org/ontology/Country>
+    ] .
+
+:PersonShape-familyName a sh:PropertyShape;
+  sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://xmlns.com/foaf/0.1/familyName> .
+
+:PersonShape-givenName a sh:PropertyShape;
+  sh:datatype xsd:string;
+  sh:maxCount 1;
+  sh:minCount 1;
+  sh:path <http://xmlns.com/foaf/0.1/givenName> .
+
+<http://data.nobelprize.org/terms/> a owl:Ontology;
+  dcterms:contributor "Jeen Broekstra <jb@metaphacts.com>", "Johannes Trame <jt@metaphacts.com>";
+  dcterms:created "2013-02-12T23:00:00.000Z"^^xsd:dateTime;
+  dcterms:creator "nobelprize.org";
+  dcterms:description """This ontology specifies the classes and properties to describe the Nobel Prize Linked Data dataset.
+  The Nobel Prize Linked Data dataset contains the authoritative information about Nobel Prizes and Nobel Laureates since 1901.
+  Please refer to https://data.nobelprize.org/specification/ for details.
+  """@en;
+  dcterms:title "Linked Nobelprize Ontology"@en;
+  vaem:namespace <http://data.nobelprize.org/terms-ext/>;
+  rdfs:comment """
+  The original ontology was retrieved from http://data.nobelprize.org/terms/ in RDF/XML (Nov 2020).
+  The ontology was converted into Turtle and the following changes have been made by metaphacts:
+  <ul>
+   <li>Fix typo: nobel:Litterature -> nobel:Literature (correct in data, c.f. http://data.nobelprize.org/page/category/Literature)</li>
+   <li>Added dedicated imports (FOAF, SKOS), define http://data.nobelprize.org/terms-ext/ as dedicated element namespace</li>
+   <li>Added SHACL shapes and minor extensions (using http://data.nobelprize.org/terms-ext/ as element namespace)</li>
+  </ul>
+  In June 2021, an updated version of the original ontology was retrieved from http://data.nobelprize.org/terms.rdf and the following changes have been ported by metaphacts to this SHACL version:
+  <li>New Datatype Properties:</li>
+  <ul>
+    <li>nobel:sortOrder</li>
+    <li>nobel:awardFile</li>
+  </ul>
+  <li>Removed Datatype Properties:</li>
+  <ul>
+    <li>nobel:field</li>
+    <li>nobel:contribution</li>
+  </ul>
+  <li>Removed Object Properties:</li>
+  <ul>
+    <li>nobel:awardFile</li>
+    <li>nobel:prizeFile</li>
+    <li>nobel:fileType</li>
+  </ul>
+  <li>Removed Classes:</li>
+  <ul>
+    <li>nobel:AwardFile</li>
+    <li>nobel:PrizeFile</li>
+    <li>nobel:FileType</li>
+  </ul>
+  <li>Changed Object Properties:</li>
+  <ul>
+    <li>nobel:motivation - nobel:NobelPrize added as domain </li>
+    <li>nobel:motivation - description changed</li>
+  </ul>
+  In addition, the following changes have been made to address inconsistencies in the original ontology, this SHACL variant or to align with changes in the original instance data (https://data.nobelprize.org/sparql as of June 2022):
+  <ul>
+    <li>previously wrong in this SHACL version: property shape for http://dbpedia.org/onyology/dateOfBirth was renamed to http://dbpedia.org/property/dateOfBirth</li>
+    <li>previously wrong in this SHACL version: property shape for http://dbpedia.org/onyology/dateOfDeath was renamed to http://dbpedia.org/property/dateOfDeath</li>
+    <li>previously wrong in this SHACL version: replace sh:and for birth- and deathplace with sh:qualifiedValueShape</li>
+    <li>previously missing in this SHACL version: http://dbpedia.org/ontology/ as dedicated import</li>
+    <li>typo in original ontology: xsd:Integer renamed to xsd:integer (lower case) </li>
+    <li>typo in original ontology: nobel:Physiology_or_Medicin renamed to nobel:Physiology_or_Medicine (missing e)</li>
+    <li>data changed: useage of language strings (rdf:langString) for nobel:motivation</li>
+  </ul>
+
+  The license is CC-BY 4.0 according to https://data.nobelprize.org/specification/ (June 2021).
+  """@en;
+  rdfs:seeAlso <http://www.nobelprize.org/>;
+  owl:imports <http://dbpedia.org/ontology/>, <http://www.w3.org/2004/02/skos/core>,
+    <http://xmlns.com/foaf/0.1/>;
+  owl:versionInfo "version 0.1" .
+
+<http://data.nobelprize.org/terms/Category> a owl:Class;
+  rdfs:comment "The Nobel Prize is given in six different categories.";
+  rdfs:label "Nobel Prize category";
+  rdfs:subClassOf skos:Concept;
+  owl:oneOf (<http://data.nobelprize.org/terms/Chemistry> <http://data.nobelprize.org/terms/Physics>
+      <http://data.nobelprize.org/terms/Literature> <http://data.nobelprize.org/terms/Peace>
+      <http://data.nobelprize.org/terms/Economic_Sciences> <http://data.nobelprize.org/terms/Physiology_or_Medicine>) .
+
+<http://data.nobelprize.org/terms/Chemistry> a owl:Thing;
+  rdfs:label "Chemistry" .
+
+<http://data.nobelprize.org/terms/Economic_Sciences> a owl:Thing;
+  rdfs:label "Economic sciences" .
+
+<http://data.nobelprize.org/terms/Laureate> a owl:Class;
+  rdfs:comment "A laureate is a person or organization who recieves one or several Nobel Prizes.";
+  rdfs:label "Laureate";
+  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> .
+
+<http://data.nobelprize.org/terms/LaureateAward> a owl:Class;
+  rdfs:comment "The Nobel Prize is often divided to several laureates. LaureateAward captures the details of the award given to each laureate, such as share of the Nobel Prize, motivation etc.";
+  rdfs:label "Laureate Award";
+  rdfs:subClassOf <http://dbpedia.org/ontology/Award> .
+
+<http://data.nobelprize.org/terms/Literature> a owl:Thing;
+  rdfs:label "Literature" .
+
+<http://data.nobelprize.org/terms/NobelPrize> a owl:Class;
+  rdfs:comment "The Nobel Prize is a set of annual international awards bestowed in a number of categories by Scandinavian committees in recognition of cultural and scientific advances. The will of the Swedish chemist Alfred Nobel, the inventor of dynamite, established the prizes in 1895. The prizes in Physics, Chemistry, Physiology or Medicine, Literature, and Peace were first awarded in 1901. The Peace Prize is awarded in Oslo, Norway, while the other prizes are awarded in Stockholm, Sweden.";
+  rdfs:label "Nobel Prize";
+  rdfs:seeAlso <http://dbpedia.org/resource/Nobel_Prize>;
+  rdfs:subClassOf <http://dbpedia.org/ontology/Award> .
+
+<http://data.nobelprize.org/terms/Peace> a owl:Thing;
+  rdfs:label "Peace" .
+
+<http://data.nobelprize.org/terms/Physics> a owl:Thing;
+  rdfs:label "Physics" .
+
+<http://data.nobelprize.org/terms/Physiology_or_Medicine> a owl:Thing;
+  rdfs:label "Physiology or Medicine" .
+
+<http://data.nobelprize.org/terms/category> a owl:ObjectProperty;
+  rdfs:comment "The category this Nobel Prize belongs to.";
+  rdfs:domain <http://data.nobelprize.org/terms/NobelPrize>;
+  rdfs:label "category";
+  rdfs:range <http://data.nobelprize.org/terms/Category> .
+
+<http://data.nobelprize.org/terms/laureate> a owl:ObjectProperty;
+  rdfs:comment "Which laureates that recieve an award.";
+  rdfs:domain <http://data.nobelprize.org/terms/LaureateAward>;
+  rdfs:label "laureate";
+  rdfs:range <http://data.nobelprize.org/terms/Laureate> .
+
+<http://data.nobelprize.org/terms/laureateAward> a owl:ObjectProperty;
+  rdfs:comment "Connects each laureate with the part of the Nobel Prize, that is the LaureateAward, he or she recieved.";
+  rdfs:domain <http://data.nobelprize.org/terms/Laureate>;
+  rdfs:label "laureateAward";
+  rdfs:range <http://data.nobelprize.org/terms/LaureateAward>;
+  rdfs:subPropertyOf <http://dbpedia.org/ontology/Award> .
+
+<http://data.nobelprize.org/terms/motivation> a owl:DatatypeProperty;
+  rdfs:comment "The motivation for why the laureate or was given the Nobel Prize or the motivation for the whole prize.";
+  rdfs:domain <http://data.nobelprize.org/terms/LaureateAward>, <http://data.nobelprize.org/terms/NobelPrize>;
+  rdfs:label "motivation";
+  rdfs:range rdf:PlainLiteral .
+
+<http://data.nobelprize.org/terms/nobelPrize> a owl:ObjectProperty;
+  rdfs:comment "Points to the Nobel Prize recieved by a Laureate.";
+  rdfs:domain <http://data.nobelprize.org/terms/Laureate>;
+  rdfs:label "nobelPrize";
+  rdfs:range <http://data.nobelprize.org/terms/NobelPrize>;
+  rdfs:subPropertyOf <http://dbpedia.org/ontology/Award> .
+
+<http://data.nobelprize.org/terms/share> a owl:DatatypeProperty;
+  rdfs:comment "The share of a Nobel Prize given to a Laureate, may be 1, 2, 3 or 4 corresponding to the whole prize, half the prize, third of the priza and a quarter of the prize.";
+  rdfs:domain <http://dbpedia.org/ontology/LaureateAward>;
+  rdfs:label "share";
+  rdfs:range xsd:integer .
+
+<http://data.nobelprize.org/terms/sortOrder> a owl:DatatypeProperty;
+  rdfs:comment "The sort order of laureates.";
+  rdfs:domain <http://data.nobelprize.org/terms/LaureateAward>;
+  rdfs:label "sort order";
+  rdfs:range xsd:integer .
+
+<http://data.nobelprize.org/terms/university> a owl:ObjectProperty;
+  rdfs:comment "Points to the universities the Laureate was affiliated with during the period he did his contribution that laid the ground for the award.";
+  rdfs:domain <http://data.nobelprize.org/terms/LaureateAward>;
+  rdfs:label "university";
+  rdfs:range <http://dbpedia.org/ontology/University> .
+
+<http://data.nobelprize.org/terms/year> a owl:DatatypeProperty;
+  rdfs:comment "The year a given Nobel Prize was given.";
+  rdfs:domain <http://dbpedia.org/ontology/Award>;
+  rdfs:label "year";
+  rdfs:range xsd:integer .
+
+<http://www.nobelprize.org/> rdfs:label "Nobelprize.org" .
