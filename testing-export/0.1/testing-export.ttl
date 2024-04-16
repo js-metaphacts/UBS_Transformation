@@ -12,9 +12,44 @@
   dcterms:contributor "admin";
   dcterms:created "2024-04-16T16:59:25.483-05:00"^^xsd:dateTime;
   dcterms:creator "admin";
-  dcterms:modified "2024-04-16T16:59:25.483-05:00"^^xsd:dateTime;
+  dcterms:modified "2024-04-16T17:00:02.219-05:00"^^xsd:dateTime;
   dcterms:title "Testing Export";
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
   vaem:namespace <https://ontologies.metaphacts.com/testing-export/>;
   rdfs:label "Testing Export";
   owl:versionInfo "0.1" .
+
+:Class1Test a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-16T17:00:02.219-05:00"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-16T17:00:02.219-05:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Class 1 test"@en .
+
+:Class2Test a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-16T17:00:02.219-05:00"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-16T17:00:02.219-05:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Class 2 test"@en .
+
+:Class2TestShape a sh:NodeShape;
+  sh:property [
+      sh:class :Class1Test;
+      sh:minCount 1;
+      sh:path :relationTest
+    ];
+  sh:targetClass :Class2Test .
+
+:relationTest a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-16T17:00:02.219-05:00"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-16T17:00:02.219-05:00"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "relation test"@en .
