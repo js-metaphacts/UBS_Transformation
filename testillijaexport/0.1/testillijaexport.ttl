@@ -13,9 +13,40 @@
   dcterms:contributor "admin";
   dcterms:created "2024-04-18T02:46:38.566Z"^^xsd:dateTime;
   dcterms:creator "admin";
-  dcterms:modified "2024-04-18T02:46:38.566Z"^^xsd:dateTime;
+  dcterms:modified "2024-04-18T02:47:13.245Z"^^xsd:dateTime;
   dcterms:title "testIllijaExport";
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
   vaem:namespace <https://ontologies.metaphacts.com/testillijaexport/>;
   rdfs:label "testIllijaExport";
   owl:versionInfo "0.1" .
+
+<https://ontologies.metaphacts.com/testillijaexport/Class1> a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-18T02:47:13.245Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-18T02:47:13.245Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/testillijaexport/0.1>;
+  rdfs:label "Class 1"@en .
+
+<https://ontologies.metaphacts.com/testillijaexport/Class2> a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-18T02:47:13.245Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-18T02:47:13.245Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/testillijaexport/0.1>;
+  rdfs:label "Class 2"@en;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom <https://ontologies.metaphacts.com/testillijaexport/Class1>;
+      owl:onProperty <https://ontologies.metaphacts.com/testillijaexport/relation1>
+    ] .
+
+<https://ontologies.metaphacts.com/testillijaexport/relation1> a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-04-18T02:47:13.245Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-04-18T02:47:13.245Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/testillijaexport/0.1>;
+  rdfs:label "relation 1"@en .
