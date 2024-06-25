@@ -6,20 +6,38 @@
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-  owl:onProperty <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> .
+  owl:onProperty <http://xmlns.com/foaf/0.1/name> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom owl:Thing;
+  owl:onProperty <http://xmlns.com/foaf/0.1/focus> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Image>;
+  owl:onProperty <http://xmlns.com/foaf/0.1/depiction> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom owl:Thing;
+  owl:onProperty <http://xmlns.com/foaf/0.1/fundedBy> .
 
 [] a owl:Restriction;
   owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
   owl:onProperty <http://xmlns.com/foaf/0.1/homepage> .
 
 [] a owl:Restriction;
+  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
+  owl:onProperty <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> .
+
+[] a owl:Restriction;
   owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/focus> .
+  owl:onProperty <http://xmlns.com/foaf/0.1/theme> .
+
+[] a owl:Restriction;
+  owl:allValuesFrom owl:Thing;
+  owl:onProperty <http://xmlns.com/foaf/0.1/logo> .
 
 [] a owl:Restriction;
   owl:allValuesFrom <http://xmlns.com/foaf/0.1/Agent>;
@@ -28,25 +46,6 @@
 [] a owl:Restriction;
   owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
   owl:onProperty <http://xmlns.com/foaf/0.1/page> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/logo> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Image>;
-  owl:onProperty <http://xmlns.com/foaf/0.1/depiction> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/theme> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/fundedBy> .
-
-[] a owl:Restriction;
-  owl:onProperty <http://xmlns.com/foaf/0.1/name> .
 
 rdfs:Class a owl:Class .
 
@@ -66,53 +65,53 @@ rdfs:Class a owl:Class .
   rdfs:label "Agent";
   rdfs:subClassOf [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
+      owl:onProperty <http://xmlns.com/foaf/0.1/mbox>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/yahooChatID>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
+      owl:onProperty <http://xmlns.com/foaf/0.1/tipjar>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/jabberID>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/mbox_sha1sum>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom owl:Thing;
       owl:onProperty <http://xmlns.com/foaf/0.1/topic_interest>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/age>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/gender>
     ], [ a owl:Restriction;
       owl:allValuesFrom <http://xmlns.com/foaf/0.1/OnlineAccount>;
       owl:onProperty <http://xmlns.com/foaf/0.1/account>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/skypeID>
     ], [ a owl:Restriction;
       owl:allValuesFrom <http://xmlns.com/foaf/0.1/OnlineAccount>;
       owl:onProperty <http://xmlns.com/foaf/0.1/holdsAccount>
     ], [ a owl:Restriction;
       owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/openid>
+      owl:onProperty <http://xmlns.com/foaf/0.1/weblog>
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/jabberID>
+      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
+      owl:onProperty <http://xmlns.com/foaf/0.1/interest>
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/skypeID>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/aimChatID>
+      owl:onProperty <http://xmlns.com/foaf/0.1/icqChatID>
     ], [ a owl:Restriction;
       owl:onProperty <http://xmlns.com/foaf/0.1/birthday>
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/yahooChatID>
+      owl:onProperty <http://xmlns.com/foaf/0.1/aimChatID>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/age>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
+      owl:onProperty <http://xmlns.com/foaf/0.1/openid>
     ], [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
       owl:onProperty <http://xmlns.com/foaf/0.1/made>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/tipjar>
-    ], [ a owl:Restriction;
       owl:onProperty <http://xmlns.com/foaf/0.1/msnChatID>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/weblog>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/mbox_sha1sum>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/icqChatID>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/mbox>
     ], [ a owl:Restriction;
       owl:onProperty <http://xmlns.com/foaf/0.1/status>
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/interest>
+      owl:onProperty <http://xmlns.com/foaf/0.1/gender>
     ] .
 
 <http://xmlns.com/foaf/0.1/Document> a owl:Class;
@@ -194,45 +193,45 @@ rdfs:Class a owl:Class .
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Person";
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/myersBriggs>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/familyName>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/publications>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/family_name>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/lastName>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/geekcode>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/plan>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/workplaceHomepage>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/schoolHomepage>
-    ], [ a owl:Restriction;
       owl:allValuesFrom <http://xmlns.com/foaf/0.1/Image>;
       owl:onProperty <http://xmlns.com/foaf/0.1/img>
     ], [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
       owl:onProperty <http://xmlns.com/foaf/0.1/pastProject>
     ], [ a owl:Restriction;
-      owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/currentProject>
+      owl:onProperty <http://xmlns.com/foaf/0.1/lastName>
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/surname>
+      owl:onProperty <http://xmlns.com/foaf/0.1/firstName>
     ], [ a owl:Restriction;
       owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/workInfoHomepage>
+      owl:onProperty <http://xmlns.com/foaf/0.1/publications>
     ], [ a owl:Restriction;
       owl:allValuesFrom <http://xmlns.com/foaf/0.1/Person>;
       owl:onProperty <http://xmlns.com/foaf/0.1/knows>
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/firstName>
+      owl:onProperty <http://xmlns.com/foaf/0.1/family_name>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
+      owl:onProperty <http://xmlns.com/foaf/0.1/schoolHomepage>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/familyName>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/plan>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
+      owl:onProperty <http://xmlns.com/foaf/0.1/workplaceHomepage>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom owl:Thing;
+      owl:onProperty <http://xmlns.com/foaf/0.1/currentProject>
+    ], [ a owl:Restriction;
+      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
+      owl:onProperty <http://xmlns.com/foaf/0.1/workInfoHomepage>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/myersBriggs>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/surname>
+    ], [ a owl:Restriction;
+      owl:onProperty <http://xmlns.com/foaf/0.1/geekcode>
     ], <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>, <http://xmlns.com/foaf/0.1/Agent> .
 
 <http://xmlns.com/foaf/0.1/PersonalProfileDocument> a owl:Class;
