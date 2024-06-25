@@ -1,52 +1,52 @@
-# BaseURI: http://xmlns.com/foaf/0.1/
+# baseURI: http://xmlns.com/foaf/0.1/
 @prefix dash: <http://datashapes.org/dash#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix foaf: <http://xmlns.com/foaf/0.1/> .
 @prefix owl: <http://www.w3.org/2002/07/owl#> .
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
 @prefix skos: <http://www.w3.org/2004/02/skos/core#> .
-@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Image>;
-  owl:onProperty <http://xmlns.com/foaf/0.1/depiction> .
+  owl:onProperty foaf:name .
 
 [] a owl:Restriction;
   owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/logo> .
+  owl:onProperty foaf:logo .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-  owl:onProperty <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> .
+  owl:allValuesFrom foaf:Document;
+  owl:onProperty foaf:page .
 
 [] a owl:Restriction;
-  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-  owl:onProperty <http://xmlns.com/foaf/0.1/homepage> .
+  owl:allValuesFrom foaf:Document;
+  owl:onProperty foaf:homepage .
 
 [] a owl:Restriction;
-  owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/theme> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/focus> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Agent>;
-  owl:onProperty <http://xmlns.com/foaf/0.1/maker> .
-
-[] a owl:Restriction;
-  owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-  owl:onProperty <http://xmlns.com/foaf/0.1/page> .
+  owl:allValuesFrom foaf:Document;
+  owl:onProperty foaf:isPrimaryTopicOf .
 
 [] a owl:Restriction;
   owl:allValuesFrom owl:Thing;
-  owl:onProperty <http://xmlns.com/foaf/0.1/fundedBy> .
+  owl:onProperty foaf:theme .
 
 [] a owl:Restriction;
-  owl:onProperty <http://xmlns.com/foaf/0.1/name> .
+  owl:allValuesFrom foaf:Image;
+  owl:onProperty foaf:depiction .
+
+[] a owl:Restriction;
+  owl:allValuesFrom foaf:Agent;
+  owl:onProperty foaf:maker .
+
+[] a owl:Restriction;
+  owl:allValuesFrom owl:Thing;
+  owl:onProperty foaf:focus .
+
+[] a owl:Restriction;
+  owl:allValuesFrom owl:Thing;
+  owl:onProperty foaf:fundedBy .
 
 rdfs:Class a owl:Class .
 
@@ -54,504 +54,504 @@ rdfs:Class a owl:Class .
   rdfs:label "Spatial Thing";
   rdfs:subClassOf [ a owl:Restriction;
       owl:allValuesFrom <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/based_near>
+      owl:onProperty foaf:based_near
     ] .
 
 <http://xmlns.com/foaf/0.1/> a owl:Ontology;
   <http://purl.org/dc/elements/1.1/description> "The Friend of a Friend (FOAF) RDF vocabulary, described using W3C RDF Schema and the Web Ontology Language.";
   <http://purl.org/dc/elements/1.1/title> "Friend of a Friend (FOAF) vocabulary" .
 
-<http://xmlns.com/foaf/0.1/Agent> a owl:Class;
+foaf:Agent a owl:Class;
   rdfs:comment "An agent (eg. person, group, software or physical artifact).";
   rdfs:label "Agent";
   rdfs:subClassOf [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/OnlineAccount>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/holdsAccount>
+      owl:onProperty foaf:status
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:birthday
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:interest
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:aimChatID
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:msnChatID
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:openid
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:OnlineAccount;
+      owl:onProperty foaf:holdsAccount
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:age
     ], [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/made>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/mbox_sha1sum>
+      owl:onProperty foaf:made
     ], [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/mbox>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/status>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/openid>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/OnlineAccount>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/account>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/aimChatID>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/weblog>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/msnChatID>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/gender>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/interest>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/jabberID>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/skypeID>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/yahooChatID>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/age>
+      owl:onProperty foaf:mbox
     ], [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/topic_interest>
+      owl:onProperty foaf:topic_interest
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/icqChatID>
+      owl:onProperty foaf:yahooChatID
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/tipjar>
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:weblog
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/birthday>
+      owl:onProperty foaf:gender
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:icqChatID
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:OnlineAccount;
+      owl:onProperty foaf:account
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:mbox_sha1sum
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:tipjar
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:skypeID
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:jabberID
     ] .
 
-<http://xmlns.com/foaf/0.1/Document> a owl:Class;
+foaf:Document a owl:Class;
   rdfs:comment "A document.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Document";
   rdfs:subClassOf [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/primaryTopic>
+      owl:onProperty foaf:topic
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/sha1>
+      owl:onProperty foaf:sha1
     ], [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/topic>
+      owl:onProperty foaf:primaryTopic
     ] .
 
-<http://xmlns.com/foaf/0.1/Group> a owl:Class;
+foaf:Group a owl:Class;
   rdfs:comment "A class of Agents.";
   rdfs:label "Group";
   rdfs:subClassOf [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Agent>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/member>
-    ], <http://xmlns.com/foaf/0.1/Agent> .
+      owl:allValuesFrom foaf:Agent;
+      owl:onProperty foaf:member
+    ], foaf:Agent .
 
-<http://xmlns.com/foaf/0.1/Image> a owl:Class;
+foaf:Image a owl:Class;
   rdfs:comment "An image.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Image";
   rdfs:subClassOf [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/depicts>
+      owl:onProperty foaf:depicts
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Image>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/thumbnail>
-    ], <http://xmlns.com/foaf/0.1/Document> .
+      owl:allValuesFrom foaf:Image;
+      owl:onProperty foaf:thumbnail
+    ], foaf:Document .
 
-<http://xmlns.com/foaf/0.1/LabelProperty> a owl:Class;
+foaf:LabelProperty a owl:Class;
   rdfs:comment "A foaf:LabelProperty is any RDF property with texual values that serve as labels.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Label Property" .
 
-<http://xmlns.com/foaf/0.1/OnlineAccount> a owl:Class;
+foaf:OnlineAccount a owl:Class;
   rdfs:comment "An online account.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Online Account";
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/accountName>
+      owl:onProperty foaf:accountName
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/accountServiceHomepage>
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:accountServiceHomepage
     ], owl:Thing .
 
-<http://xmlns.com/foaf/0.1/OnlineChatAccount> a owl:Class;
+foaf:OnlineChatAccount a owl:Class;
   rdfs:comment "An online chat account.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Online Chat Account";
-  rdfs:subClassOf <http://xmlns.com/foaf/0.1/OnlineAccount> .
+  rdfs:subClassOf foaf:OnlineAccount .
 
-<http://xmlns.com/foaf/0.1/OnlineEcommerceAccount> a owl:Class;
+foaf:OnlineEcommerceAccount a owl:Class;
   rdfs:comment "An online e-commerce account.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Online E-commerce Account";
-  rdfs:subClassOf <http://xmlns.com/foaf/0.1/OnlineAccount> .
+  rdfs:subClassOf foaf:OnlineAccount .
 
-<http://xmlns.com/foaf/0.1/OnlineGamingAccount> a owl:Class;
+foaf:OnlineGamingAccount a owl:Class;
   rdfs:comment "An online gaming account.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Online Gaming Account";
-  rdfs:subClassOf <http://xmlns.com/foaf/0.1/OnlineAccount> .
+  rdfs:subClassOf foaf:OnlineAccount .
 
-<http://xmlns.com/foaf/0.1/Organization> a owl:Class;
+foaf:Organization a owl:Class;
   rdfs:comment "An organization.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Organization";
-  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Agent> .
+  rdfs:subClassOf foaf:Agent .
 
-<http://xmlns.com/foaf/0.1/Person> a owl:Class;
+foaf:Person a owl:Class;
   rdfs:comment "A person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Person";
   rdfs:subClassOf [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/geekcode>
+      owl:allValuesFrom owl:Thing;
+      owl:onProperty foaf:currentProject
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/myersBriggs>
+      owl:onProperty foaf:lastName
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/schoolHomepage>
+      owl:onProperty foaf:family_name
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/plan>
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:publications
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/workInfoHomepage>
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:workInfoHomepage
     ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Image>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/img>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Person>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/knows>
-    ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/familyName>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/workplaceHomepage>
-    ], [ a owl:Restriction;
-      owl:allValuesFrom <http://xmlns.com/foaf/0.1/Document>;
-      owl:onProperty <http://xmlns.com/foaf/0.1/publications>
+      owl:onProperty foaf:firstName
     ], [ a owl:Restriction;
       owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/currentProject>
+      owl:onProperty foaf:pastProject
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/surname>
+      owl:onProperty foaf:geekcode
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/lastName>
+      owl:onProperty foaf:surname
     ], [ a owl:Restriction;
-      owl:allValuesFrom owl:Thing;
-      owl:onProperty <http://xmlns.com/foaf/0.1/pastProject>
+      owl:onProperty foaf:myersBriggs
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/family_name>
+      owl:onProperty foaf:familyName
     ], [ a owl:Restriction;
-      owl:onProperty <http://xmlns.com/foaf/0.1/firstName>
-    ], <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>, <http://xmlns.com/foaf/0.1/Agent> .
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:schoolHomepage
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:Person;
+      owl:onProperty foaf:knows
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:Image;
+      owl:onProperty foaf:img
+    ], [ a owl:Restriction;
+      owl:allValuesFrom foaf:Document;
+      owl:onProperty foaf:workplaceHomepage
+    ], [ a owl:Restriction;
+      owl:onProperty foaf:plan
+    ], <http://www.w3.org/2003/01/geo/wgs84_pos#SpatialThing>, foaf:Agent .
 
-<http://xmlns.com/foaf/0.1/PersonalProfileDocument> a owl:Class;
+foaf:PersonalProfileDocument a owl:Class;
   rdfs:comment "A personal profile RDF document.";
   rdfs:label "PersonalProfileDocument";
-  rdfs:subClassOf <http://xmlns.com/foaf/0.1/Document> .
+  rdfs:subClassOf foaf:Document .
 
-<http://xmlns.com/foaf/0.1/Project> a owl:Class;
+foaf:Project a owl:Class;
   rdfs:comment "A project (a collective endeavour of some kind).";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Project" .
 
-<http://xmlns.com/foaf/0.1/account> a owl:ObjectProperty;
+foaf:account a owl:ObjectProperty;
   rdfs:comment "Indicates an account held by this agent.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "account" .
 
-<http://xmlns.com/foaf/0.1/accountName> a owl:DatatypeProperty;
+foaf:accountName a owl:DatatypeProperty;
   rdfs:comment "Indicates the name (identifier) associated with this online account.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "account name" .
 
-<http://xmlns.com/foaf/0.1/accountServiceHomepage> a owl:ObjectProperty;
+foaf:accountServiceHomepage a owl:ObjectProperty;
   rdfs:comment "Indicates a homepage of the service provide for this online account.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "account service homepage" .
 
-<http://xmlns.com/foaf/0.1/age> a owl:DatatypeProperty;
+foaf:age a owl:DatatypeProperty;
   rdfs:comment "The age in years of some agent.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "age" .
 
-<http://xmlns.com/foaf/0.1/aimChatID> a owl:DatatypeProperty;
+foaf:aimChatID a owl:DatatypeProperty;
   rdfs:comment "An AIM chat ID";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "AIM chat ID";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/nick> .
+  rdfs:subPropertyOf foaf:nick .
 
-<http://xmlns.com/foaf/0.1/based_near> a owl:ObjectProperty;
+foaf:based_near a owl:ObjectProperty;
   rdfs:comment "A location that something is based near, for some broadly human notion of near.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "based near" .
 
-<http://xmlns.com/foaf/0.1/birthday> a owl:DatatypeProperty;
+foaf:birthday a owl:DatatypeProperty;
   rdfs:comment "The birthday of this Agent, represented in mm-dd string form, eg. '12-31'.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "birthday" .
 
-<http://xmlns.com/foaf/0.1/currentProject> a owl:ObjectProperty;
+foaf:currentProject a owl:ObjectProperty;
   rdfs:comment "A current project this person works on.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "current project" .
 
-<http://xmlns.com/foaf/0.1/depiction> a owl:ObjectProperty;
+foaf:depiction a owl:ObjectProperty;
   rdfs:comment "A depiction of some thing.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "depiction" .
 
-<http://xmlns.com/foaf/0.1/depicts> a owl:ObjectProperty;
+foaf:depicts a owl:ObjectProperty;
   rdfs:comment "A thing depicted in this representation.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "depicts" .
 
-<http://xmlns.com/foaf/0.1/dnaChecksum> a owl:DatatypeProperty;
+foaf:dnaChecksum a owl:DatatypeProperty;
   rdfs:comment "A checksum for the DNA of some thing. Joke.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "DNA checksum" .
 
-<http://xmlns.com/foaf/0.1/familyName> a owl:DatatypeProperty;
+foaf:familyName a owl:DatatypeProperty;
   rdfs:comment "The family name of some person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "familyName" .
 
-<http://xmlns.com/foaf/0.1/family_name> a owl:DatatypeProperty;
+foaf:family_name a owl:DatatypeProperty;
   rdfs:comment "The family name of some person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "family_name" .
 
-<http://xmlns.com/foaf/0.1/firstName> a owl:DatatypeProperty;
+foaf:firstName a owl:DatatypeProperty;
   rdfs:comment "The first name of a person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "firstName" .
 
-<http://xmlns.com/foaf/0.1/focus> a owl:ObjectProperty;
+foaf:focus a owl:ObjectProperty;
   rdfs:comment "The underlying or 'focal' entity associated with some SKOS-described concept.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "focus" .
 
-<http://xmlns.com/foaf/0.1/fundedBy> a owl:ObjectProperty;
+foaf:fundedBy a owl:ObjectProperty;
   rdfs:comment "An organization funding a project or person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "funded by" .
 
-<http://xmlns.com/foaf/0.1/geekcode> a owl:DatatypeProperty;
+foaf:geekcode a owl:DatatypeProperty;
   rdfs:comment "A textual geekcode for this person, see http://www.geekcode.com/geek.html";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "geekcode" .
 
-<http://xmlns.com/foaf/0.1/gender> a owl:DatatypeProperty;
+foaf:gender a owl:DatatypeProperty;
   rdfs:comment "The gender of this Agent (typically but not necessarily 'male' or 'female').";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "gender" .
 
-<http://xmlns.com/foaf/0.1/givenName> a owl:DatatypeProperty;
+foaf:givenName a owl:DatatypeProperty;
   rdfs:comment "The given name of some person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Given name" .
 
-<http://xmlns.com/foaf/0.1/givenname> a owl:DatatypeProperty;
+foaf:givenname a owl:DatatypeProperty;
   rdfs:comment "The given name of some person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Given name" .
 
-<http://xmlns.com/foaf/0.1/holdsAccount> a owl:ObjectProperty;
+foaf:holdsAccount a owl:ObjectProperty;
   rdfs:comment "Indicates an account held by this agent.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "account" .
 
-<http://xmlns.com/foaf/0.1/homepage> a owl:ObjectProperty;
+foaf:homepage a owl:ObjectProperty;
   rdfs:comment "A homepage for some thing.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "homepage";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/isPrimaryTopicOf>, <http://xmlns.com/foaf/0.1/page> .
+  rdfs:subPropertyOf foaf:isPrimaryTopicOf, foaf:page .
 
-<http://xmlns.com/foaf/0.1/icqChatID> a owl:DatatypeProperty;
+foaf:icqChatID a owl:DatatypeProperty;
   rdfs:comment "An ICQ chat ID";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "ICQ chat ID";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/nick> .
+  rdfs:subPropertyOf foaf:nick .
 
-<http://xmlns.com/foaf/0.1/img> a owl:ObjectProperty;
+foaf:img a owl:ObjectProperty;
   rdfs:comment "An image that can be used to represent some thing (ie. those depictions which are particularly representative of something, eg. one's photo on a homepage).";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "image";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/depiction> .
+  rdfs:subPropertyOf foaf:depiction .
 
-<http://xmlns.com/foaf/0.1/interest> a owl:ObjectProperty;
+foaf:interest a owl:ObjectProperty;
   rdfs:comment "A page about a topic of interest to this person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "interest" .
 
-<http://xmlns.com/foaf/0.1/jabberID> a owl:DatatypeProperty;
+foaf:jabberID a owl:DatatypeProperty;
   rdfs:comment "A jabber ID for something.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "jabber ID" .
 
-<http://xmlns.com/foaf/0.1/knows> a owl:ObjectProperty;
+foaf:knows a owl:ObjectProperty;
   rdfs:comment "A person known by this person (indicating some level of reciprocated interaction between the parties).";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "knows" .
 
-<http://xmlns.com/foaf/0.1/lastName> a owl:DatatypeProperty;
+foaf:lastName a owl:DatatypeProperty;
   rdfs:comment "The last name of a person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "lastName" .
 
-<http://xmlns.com/foaf/0.1/logo> a owl:ObjectProperty;
+foaf:logo a owl:ObjectProperty;
   rdfs:comment "A logo representing some thing.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "logo" .
 
-<http://xmlns.com/foaf/0.1/made> a owl:ObjectProperty;
+foaf:made a owl:ObjectProperty;
   rdfs:comment "Something that was made by this agent.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "made" .
 
-<http://xmlns.com/foaf/0.1/maker> a owl:ObjectProperty;
+foaf:maker a owl:ObjectProperty;
   rdfs:comment "An agent that  made this thing.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "maker" .
 
-<http://xmlns.com/foaf/0.1/mbox> a owl:ObjectProperty;
+foaf:mbox a owl:ObjectProperty;
   rdfs:comment "A  personal mailbox, ie. an Internet mailbox associated with exactly one owner, the first owner of this mailbox. This is a 'static inverse functional property', in that  there is (across time and change) at most one individual that ever has any particular value for foaf:mbox.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "personal mailbox" .
 
-<http://xmlns.com/foaf/0.1/mbox_sha1sum> a owl:DatatypeProperty;
+foaf:mbox_sha1sum a owl:DatatypeProperty;
   rdfs:comment "The sha1sum of the URI of an Internet mailbox associated with exactly one owner, the  first owner of the mailbox.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "sha1sum of a personal mailbox URI name" .
 
-<http://xmlns.com/foaf/0.1/member> a owl:ObjectProperty;
+foaf:member a owl:ObjectProperty;
   rdfs:comment "Indicates a member of a Group";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "member" .
 
-<http://xmlns.com/foaf/0.1/msnChatID> a owl:DatatypeProperty;
+foaf:msnChatID a owl:DatatypeProperty;
   rdfs:comment "An MSN chat ID";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "MSN chat ID";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/nick> .
+  rdfs:subPropertyOf foaf:nick .
 
-<http://xmlns.com/foaf/0.1/myersBriggs> a owl:DatatypeProperty;
+foaf:myersBriggs a owl:DatatypeProperty;
   rdfs:comment "A Myers Briggs (MBTI) personality classification.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "myersBriggs" .
 
-<http://xmlns.com/foaf/0.1/name> a owl:DatatypeProperty;
+foaf:name a owl:DatatypeProperty;
   rdfs:comment "A name for some thing.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "name";
   rdfs:subPropertyOf rdfs:label .
 
-<http://xmlns.com/foaf/0.1/nick> a owl:DatatypeProperty;
+foaf:nick a owl:DatatypeProperty;
   rdfs:comment "A short informal nickname characterising an agent (includes login identifiers, IRC and other chat nicknames).";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "nickname" .
 
-<http://xmlns.com/foaf/0.1/openid> a owl:ObjectProperty;
+foaf:openid a owl:ObjectProperty;
   rdfs:comment "An OpenID for an Agent.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "openid";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/isPrimaryTopicOf> .
+  rdfs:subPropertyOf foaf:isPrimaryTopicOf .
 
-<http://xmlns.com/foaf/0.1/page> a owl:ObjectProperty;
+foaf:page a owl:ObjectProperty;
   rdfs:comment "A page or document about this thing.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "page" .
 
-<http://xmlns.com/foaf/0.1/pastProject> a owl:ObjectProperty;
+foaf:pastProject a owl:ObjectProperty;
   rdfs:comment "A project this person has previously worked on.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "past project" .
 
-<http://xmlns.com/foaf/0.1/phone> a owl:ObjectProperty;
+foaf:phone a owl:ObjectProperty;
   rdfs:comment "A phone,  specified using fully qualified tel: URI scheme (refs: http://www.w3.org/Addressing/schemes.html#tel).";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "phone" .
 
-<http://xmlns.com/foaf/0.1/plan> a owl:DatatypeProperty;
+foaf:plan a owl:DatatypeProperty;
   rdfs:comment "A .plan comment, in the tradition of finger and '.plan' files.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "plan" .
 
-<http://xmlns.com/foaf/0.1/primaryTopic> a owl:ObjectProperty;
+foaf:primaryTopic a owl:ObjectProperty;
   rdfs:comment "The primary topic of some page or document.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "primary topic" .
 
-<http://xmlns.com/foaf/0.1/publications> a owl:ObjectProperty;
+foaf:publications a owl:ObjectProperty;
   rdfs:comment "A link to the publications of this person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "publications" .
 
-<http://xmlns.com/foaf/0.1/schoolHomepage> a owl:ObjectProperty;
+foaf:schoolHomepage a owl:ObjectProperty;
   rdfs:comment "A homepage of a school attended by the person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "schoolHomepage" .
 
-<http://xmlns.com/foaf/0.1/sha1> a owl:DatatypeProperty;
+foaf:sha1 a owl:DatatypeProperty;
   rdfs:comment "A sha1sum hash, in hex.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "sha1sum (hex)" .
 
-<http://xmlns.com/foaf/0.1/skypeID> a owl:DatatypeProperty;
+foaf:skypeID a owl:DatatypeProperty;
   rdfs:comment "A Skype ID";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Skype ID";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/nick> .
+  rdfs:subPropertyOf foaf:nick .
 
-<http://xmlns.com/foaf/0.1/status> a owl:DatatypeProperty;
+foaf:status a owl:DatatypeProperty;
   rdfs:comment "A string expressing what the user is happy for the general public (normally) to know about their current activity.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "status" .
 
-<http://xmlns.com/foaf/0.1/surname> a owl:DatatypeProperty;
+foaf:surname a owl:DatatypeProperty;
   rdfs:comment "The surname of some person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Surname" .
 
-<http://xmlns.com/foaf/0.1/theme> a owl:ObjectProperty;
+foaf:theme a owl:ObjectProperty;
   rdfs:comment "A theme.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "theme" .
 
-<http://xmlns.com/foaf/0.1/thumbnail> a owl:ObjectProperty;
+foaf:thumbnail a owl:ObjectProperty;
   rdfs:comment "A derived thumbnail image.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "thumbnail" .
 
-<http://xmlns.com/foaf/0.1/tipjar> a owl:ObjectProperty;
+foaf:tipjar a owl:ObjectProperty;
   rdfs:comment "A tipjar document for this agent, describing means for payment and reward.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "tipjar";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/page> .
+  rdfs:subPropertyOf foaf:page .
 
-<http://xmlns.com/foaf/0.1/title> a owl:DatatypeProperty;
+foaf:title a owl:DatatypeProperty;
   rdfs:comment "Title (Mr, Mrs, Ms, Dr. etc)";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "title" .
 
-<http://xmlns.com/foaf/0.1/topic> a owl:ObjectProperty;
+foaf:topic a owl:ObjectProperty;
   rdfs:comment "A topic of some page or document.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "topic" .
 
-<http://xmlns.com/foaf/0.1/topic_interest> a owl:ObjectProperty;
+foaf:topic_interest a owl:ObjectProperty;
   rdfs:comment "A thing of interest to this person.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "topic_interest" .
 
-<http://xmlns.com/foaf/0.1/weblog> a owl:ObjectProperty;
+foaf:weblog a owl:ObjectProperty;
   rdfs:comment "A weblog of some thing (whether person, group, company etc.).";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "weblog";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/page> .
+  rdfs:subPropertyOf foaf:page .
 
-<http://xmlns.com/foaf/0.1/workInfoHomepage> a owl:ObjectProperty;
+foaf:workInfoHomepage a owl:ObjectProperty;
   rdfs:comment "A work info homepage of some person; a page about their work for some organization.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "work info homepage" .
 
-<http://xmlns.com/foaf/0.1/workplaceHomepage> a owl:ObjectProperty;
+foaf:workplaceHomepage a owl:ObjectProperty;
   rdfs:comment "A workplace homepage of some person; the homepage of an organization they work for.";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "workplace homepage" .
 
-<http://xmlns.com/foaf/0.1/yahooChatID> a owl:DatatypeProperty;
+foaf:yahooChatID a owl:DatatypeProperty;
   rdfs:comment "A Yahoo chat ID";
   rdfs:isDefinedBy <http://xmlns.com/foaf/0.1/>;
   rdfs:label "Yahoo chat ID";
-  rdfs:subPropertyOf <http://xmlns.com/foaf/0.1/nick> .
+  rdfs:subPropertyOf foaf:nick .
