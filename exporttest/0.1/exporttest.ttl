@@ -4,7 +4,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 :0.1 a owl:Ontology;
@@ -12,10 +11,53 @@
   dcterms:contributor "admin";
   dcterms:created "2024-06-25T23:29:41.318Z"^^xsd:dateTime;
   dcterms:creator "admin";
-  dcterms:modified "2024-06-25T23:29:41.318Z"^^xsd:dateTime;
+  dcterms:modified "2024-06-25T23:36:35.394Z"^^xsd:dateTime;
   dcterms:title "ExportTest"@en;
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
-  vaem:namespace <https://ontologies.metaphacts.com/exporttest/>;
+  <http://www.linkedmodel.org/1.2/schema/vaem#namespace> <https://ontologies.metaphacts.com/exporttest/>;
   rdfs:label "ExportTest"@en;
   owl:imports <https://graph.bmwgroup.net/Ontology/ThisValuesShouldBe>;
   owl:versionInfo "0.1" .
+
+:Class1 a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-06-25T23:30:56.626Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-06-25T23:31:58.750Z"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Class1"@en .
+
+:Class1Shape a sh:NodeShape;
+  sh:property [
+      sh:class :Class2;
+      sh:path :newRelation
+    ];
+  sh:targetClass :Class1 .
+
+:Class2 a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-06-25T23:31:58.750Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-06-25T23:31:58.750Z"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "Class2"@en .
+
+:NewClass3 a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-06-25T23:36:35.394Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-06-25T23:36:35.394Z"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "NewClass3"@en .
+
+:newRelation a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-06-25T23:31:58.750Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-06-25T23:31:58.750Z"^^xsd:dateTime;
+  rdfs:isDefinedBy :0.1;
+  rdfs:label "newRelation" .
