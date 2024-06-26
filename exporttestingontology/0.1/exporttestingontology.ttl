@@ -1,0 +1,21 @@
+# baseURI: https://ontologies.metaphacts.com/exporttestingontology/0.1
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontologies.metaphacts.com/exporttestingontology/0.1> a owl:Ontology;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dcterms:contributor "admin";
+  dcterms:created "2024-06-26T15:22:10.705Z"^^xsd:dateTime;
+  dcterms:creator "admin";
+  dcterms:modified "2024-06-26T15:22:10.705Z"^^xsd:dateTime;
+  dcterms:title "ExportTestingOntology";
+  <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
+  vaem:namespace <https://ontologies.metaphacts.com/exporttestingontology/>;
+  rdfs:label "ExportTestingOntology";
+  owl:versionInfo "0.1" .
