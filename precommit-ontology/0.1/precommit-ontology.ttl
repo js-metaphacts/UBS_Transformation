@@ -5,7 +5,6 @@
 @prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
 @prefix sh: <http://www.w3.org/ns/shacl#> .
-@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
 @prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 
 <https://ontologies.metaphacts.com/precommit-ontology/0.1> a owl:Ontology;
@@ -13,9 +12,40 @@
   dct:contributor "admin";
   dct:created "2024-10-21T20:23:10.740Z"^^xsd:dateTime;
   dct:creator "admin";
-  dct:modified "2024-10-21T20:23:10.740Z"^^xsd:dateTime;
+  dct:modified "2024-10-21T20:30:30.203Z"^^xsd:dateTime;
   dct:title "Precommit-ontology"@en;
   <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/draft>;
-  vaem:namespace <https://ontologies.metaphacts.com/precommit-ontology/>;
+  <http://www.linkedmodel.org/1.2/schema/vaem#namespace> <https://ontologies.metaphacts.com/precommit-ontology/>;
   rdfs:label "Precommit-ontology"@en;
   owl:versionInfo "0.1" .
+
+<https://ontologies.metaphacts.com/precommit-ontology/Abc> a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-10-21T20:30:30.203Z"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-10-21T20:30:30.203Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/precommit-ontology/0.1>;
+  rdfs:label "ABC"@en;
+  rdfs:subClassOf [ a owl:Restriction;
+      owl:allValuesFrom <https://ontologies.metaphacts.com/precommit-ontology/Def>;
+      owl:onProperty <https://ontologies.metaphacts.com/precommit-ontology/rel>
+    ] .
+
+<https://ontologies.metaphacts.com/precommit-ontology/Def> a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-10-21T20:30:30.203Z"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-10-21T20:30:30.203Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/precommit-ontology/0.1>;
+  rdfs:label "DEF"@en .
+
+<https://ontologies.metaphacts.com/precommit-ontology/rel> a owl:ObjectProperty;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-10-21T20:30:30.203Z"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-10-21T20:30:30.203Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/precommit-ontology/0.1>;
+  rdfs:label "rel"@en .
