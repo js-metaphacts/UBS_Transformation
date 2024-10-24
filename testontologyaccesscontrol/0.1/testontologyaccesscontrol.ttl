@@ -1,0 +1,30 @@
+# baseURI: https://ontologies.metaphacts.com/testontologyaccesscontrol/0.1
+@prefix dash: <http://datashapes.org/dash#> .
+@prefix dct: <http://purl.org/dc/terms/> .
+@prefix owl: <http://www.w3.org/2002/07/owl#> .
+@prefix rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
+@prefix rdfs: <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix sh: <http://www.w3.org/ns/shacl#> .
+@prefix vaem: <http://www.linkedmodel.org/1.2/schema/vaem#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
+
+<https://ontologies.metaphacts.com/testontologyaccesscontrol/0.1> a owl:Ontology;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-10-24T00:16:04.663Z"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-10-24T00:17:18.537Z"^^xsd:dateTime;
+  dct:title "TestOntologyAccessControl"@en;
+  <http://purl.org/ontology/bibo/status> <http://purl.org/spar/pso/published>;
+  vaem:namespace <https://ontologies.metaphacts.com/testontologyaccesscontrol/>;
+  rdfs:label "TestOntologyAccessControl"@en;
+  owl:versionInfo "0.1" .
+
+<https://ontologies.metaphacts.com/testontologyaccesscontrol/NewClassTest> a owl:Class;
+  <http://open-services.net/ns/core#modifiedBy> "admin";
+  dct:contributor "admin";
+  dct:created "2024-10-24T00:17:18.537Z"^^xsd:dateTime;
+  dct:creator "admin";
+  dct:modified "2024-10-24T00:17:18.537Z"^^xsd:dateTime;
+  rdfs:isDefinedBy <https://ontologies.metaphacts.com/testontologyaccesscontrol/0.1>;
+  rdfs:label "New Class Test"@en .
